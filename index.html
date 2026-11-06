@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#06152f">
+  <meta name="description" content="SH MOD STOR — Premium APK Store">
+  <title>SH MOD STOR | Premium APK Store</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">SH</span><span>SH MOD <b>STOR</b><small>PREMIUM APK STORE</small></span></a>
+    <nav><a href="#apps">স্টোর</a><a href="#about">আমাদের সম্পর্কে</a><button class="btn btn-outline" id="adminOpen">ADMIN PANEL</button></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><i></i> YOUR PREMIUM APP DESTINATION</span>
+        <h1>WELCOME TO<br><span>SH MOD STOR</span></h1>
+        <p>তোমার পছন্দের অ্যাপ ও MOD APK খুঁজে নাও এক জায়গায়। সহজে দেখো, বিস্তারিত জানো এবং ডাউনলোড করো।</p>
+        <a class="btn btn-primary" href="#apps">EXPLORE APPS <span>↘</span></a>
+      </div>
+      <div class="hero-art"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="phone"><div class="phone-speaker"></div><div class="phone-screen"><div class="screen-logo">SH</div><strong>MOD STOR</strong><small>UNLOCK YOUR APPS</small><div class="screen-bars"><i></i><i></i><i></i></div></div></div><div class="float-tag tag-top">✦ PREMIUM</div><div class="float-tag tag-bottom">APK • MOD • APPS</div></div>
+    </section>
+
+    <section class="store-section" id="apps">
+      <div class="section-heading"><div><span class="eyebrow">DISCOVER SOMETHING NEW</span><h2>Latest <span>Applications</span></h2></div><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="অ্যাপ খুঁজুন..."></div></div>
+      <div class="filters"><button class="filter active" data-filter="all">সব অ্যাপ</button><button class="filter" data-filter="MOD">MOD APK</button><button class="filter" data-filter="GAME">গেম</button><button class="filter" data-filter="APP">অ্যাপ</button></div>
+      <div id="status" class="status">অ্যাপ লোড হচ্ছে...</div>
+      <div class="app-grid" id="appGrid"></div>
+    </section>
+
+    <section class="about" id="about"><div class="about-icon">✦</div><div><span class="eyebrow">ABOUT THE STORE</span><h2>One place. <span>More possibilities.</span></h2><p>SH MOD STOR একটি কমিউনিটি APK স্টোর। এখানে প্রকাশিত অ্যাপের তথ্য ও ফাইল অ্যাডমিন দ্বারা যোগ করা হয়। ইনস্টল করার আগে প্রতিটি ফাইল নিজ দায়িত্বে যাচাই করে নাও।</p></div></section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">SH</span><span>SH MOD <b>STOR</b><small>PREMIUM APK STORE</small></span></a><span>© <span id="year"></span> SH MOD STOR. All rights reserved.</span></footer>
+
+  <div class="modal-backdrop" id="adminModal" aria-hidden="true">
+    <section class="modal">
+      <button class="close" id="adminClose" aria-label="বন্ধ করুন">×</button>
+      <div class="modal-heading"><span class="eyebrow">SECURE ACCESS</span><h2>Admin <span>Panel</span></h2><p>শুধুমাত্র অনুমোদিত অ্যাডমিন প্রবেশ করতে পারবে।</p></div>
+      <div id="loginBox">
+        <label>ইমেইল<input id="email" type="email" placeholder="admin@example.com"></label>
+        <label>পাসওয়ার্ড<input id="password" type="password" placeholder="তোমার পাসওয়ার্ড"></label>
+        <button class="btn btn-primary full" id="loginBtn">LOGIN</button>
+      </div>
+      <div id="dashboard" hidden>
+        <div class="admin-top"><b>নতুন অ্যাপ আপলোড</b><button class="btn btn-outline small" id="logoutBtn">LOG OUT</button></div>
+        <label>অ্যাপের নাম<input id="appTitle" placeholder="যেমন: SH Photo Editor" maxlength="80"></label>
+        <label>বিবরণ<textarea id="appDescription" placeholder="অ্যাপ সম্পর্কে লিখুন..." rows="3"></textarea></label>
+        <div class="two-fields"><label>ভার্সন<input id="appVersion" placeholder="1.0.0"></label><label>ক্যাটাগরি<select id="appCategory"><option value="APP">APP</option><option value="MOD">MOD APK</option><option value="GAME">GAME</option></select></label></div>
+        <label>অ্যাপ আইকন (ঐচ্ছিক)<input id="appIcon" type="file" accept="image/png,image/jpeg,image/webp"></label>
+        <label>APK Download Link <input id="apkUrl" type="url" placeholder="https://github.com/USER/REPO/releases/download/v1.0/app.apk" required></label>
+        <button class="btn btn-primary full" id="uploadBtn">UPLOAD TO STORE</button>
+        <p class="hint" id="adminStatus">বড় APK GitHub Releases-এ আপলোড করে তার Download Link এখানে দাও।</p>
+      </div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body></html>
