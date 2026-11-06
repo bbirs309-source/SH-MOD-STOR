@@ -190,17 +190,16 @@ if ($("uploadBtn")) $("uploadBtn").addEventListener("click", async () => {
   btn.textContent = "UPLOADING...";
   setAdminStatus("ফাইল আপলোড হচ্ছে, অপেক্ষা করো...");
   try {
-    const apkPath = await uploadFile(apk, "downloads");
-    const icon = $("appIcon")?.files?.[0];
-    const iconPath = icon ? await uploadFile(icon, "icons") : null;
-    const { error } = await db.from("apps").insert({
-      title,
-      description: $("appDescription")?.value.trim() || "",
-      version: $("appVersion")?.value.trim() || "",
-      category: $("appCategory")?.value || "APP",
-      apk_path: apkPath,
-      icon_path: iconPath
-    });
+    
+const {error} = await db.from("apps").insert({
+  name: $("appTitle").value.trim(),
+  title: $("appTitle").value.trim(),
+  description: $("appDescription").value.trim(),
+  version: $("appVersion").value.trim(),
+  category: $("appCategory").value,
+  apk_path: apkPath,
+  icon_path: iconPath
+});
     if (error) throw error;
     setAdminStatus("সফলভাবে আপলোড হয়েছে! স্টোরে এখন দেখা যাবে।");
     ["appTitle", "appDescription", "appVersion", "apkFile", "appIcon"].forEach(id => { if ($(id)) $(id).value = ""; });
